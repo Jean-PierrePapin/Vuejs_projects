@@ -1,36 +1,3 @@
-<template>
-    <li>
-        <header><h1>{{ friend.name }}</h1></header>
-        <button @click="toggleDetails">Show details</button>
-        <ul v-if="detailsAreVisible">
-            <li><strong>Phone:</strong> {{ friend.phone }}</li>
-            <li><strong>Email:</strong> {{ friend.email }}</li>
-        </ul>
-    </li>
-</template>
-
-<script>
-export default {
-    data() {
-        return {
-            detailsAreVisible: false,
-            friend: {
-                id: 'manuel',
-                name: 'Manuel Lorenz',
-                phone: '0123 45678 9',
-                email: 'manuel@local.com'
-            }
-        };
-    },
-    methods: {
-        toggleDetails() {
-            this.detailsAreVisible = !this.detailsAreVisible;
-        }
-    }
-};
-</script>
-
-<style>
 * {
   box-sizing: border-box;
 }
@@ -94,5 +61,3 @@ header {
   border-color: #ec3169;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.26);
 }
-
-</style>
