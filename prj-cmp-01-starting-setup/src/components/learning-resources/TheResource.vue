@@ -29,7 +29,7 @@ export default {
   data() {
     return {
       selectedTab: 'stored-resources',
-      StoredResources: [
+      storedResources: [
         {
           id: 'official-guide',
           title: 'Official Guide',
@@ -47,8 +47,9 @@ export default {
   },
   provide() {
     return {
-      resources: this.StoredResources,
+      resources: this.storedResources,
       addResource: this.addResource,
+      deleteResource: this.removeResource,
     };
   },
   computed: {
@@ -70,9 +71,13 @@ export default {
             description: description,
             link: url
         };
-        this.StoredResources.unshift(newResource);
+        this.storedResources.unshift(newResource);
         this.selectedTab = 'stored-resources';
-    }
-  }
+    },
+    removeResource(resId) {
+        const resIndex = this.storedResources.findIndex(res => res.id === resId);
+        this.storedResources.splice(resIndex, 1);
+    },
+  },
 };
 </script>
