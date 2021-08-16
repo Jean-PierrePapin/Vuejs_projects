@@ -11,7 +11,8 @@ const routes = [
     { path: '/', redirect: '/coaches' },
     { path: '/coaches', component: CoachesList },
     { path: '/coaches/:id', 
-      component: CoachDetail, 
+      component: CoachDetail,
+      props: true, 
       childread: [
         { path: 'contact', component: ContactCoach }
         ] 
