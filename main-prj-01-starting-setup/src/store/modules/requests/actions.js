@@ -5,7 +5,7 @@ export default {
             userEmail: payload.email,
             message: payload.message
         };
-        const response = await fetch(`https://micro-reserve-281813-default-rtdb.europe-west1.firebasedatabase.app/requests/${payload.coachID}.json`, {
+        const response = await fetch(`https://micro-reserve-281813-default-rtdb.europe-west1.firebasedatabase.app/requests/${payload.coachId}.json`, {
             method: 'POST',
             body: JSON.stringify(newRequest)
         });
