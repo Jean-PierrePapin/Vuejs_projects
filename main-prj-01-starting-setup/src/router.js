@@ -25,6 +25,11 @@ const routes = [
     { path: '/:notFound(.*)', component: NotFound }
 ];
 
+const router = createRouter({
+    history: createWebHistory(),
+    routes,
+});
+
 router.beforeEach(function(to, _, next) {
     if (to.meta.requireAuth && store.getters.isAuthenticated) {
         next('/auth');
@@ -35,9 +40,6 @@ router.beforeEach(function(to, _, next) {
     }
 });
 
-const router = createRouter({
-    history: createWebHistory(),
-    routes,
-});
+
 
 export default router;
